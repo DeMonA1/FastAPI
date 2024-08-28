@@ -1,10 +1,14 @@
 from fastapi import APIRouter, HTTPException, status
+# from fastapi.templating import Jinja2Templates
+
 from models.users import User, UserSignIn
 
 
 user_router = APIRouter(tags=["User"])
 
 users = {}
+# templates = Jinja2Templates(directory="templates/")
+
 
 @user_router.post("/signup")
 async def sign_user_up(data: User) -> dict:
