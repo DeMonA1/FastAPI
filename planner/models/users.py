@@ -9,7 +9,7 @@ from models.events import Event
 class User(Document):
     email: EmailStr
     password: str
-    events: Optional[List[Link[Event]]]
+    events: Optional[List[Link[Event]]] = None
     
     class Settings:
         name = "users"
