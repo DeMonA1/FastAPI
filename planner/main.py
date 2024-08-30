@@ -10,14 +10,15 @@ from routes.events import event_router
 from database.connection import Settings
 
 
+settings = Settings()
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await settings.initialize_database()
     yield
 
 app = FastAPI(lifespan=lifespan)
-
-settings = Settings()
 
 origins = ["*"]
 

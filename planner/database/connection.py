@@ -1,27 +1,30 @@
+import os
+from dotenv import load_dotenv
 from typing import Optional, Any, List
+from functools import lru_cache
 
 from beanie import init_beanie, PydanticObjectId
 from pydantic import BaseModel
 from motor.motor_asyncio import AsyncIOMotorClient
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from models.events import Event
 from models.users import User
 
 
+load_dotenv()
+
+
 class Settings(BaseSettings):
     DATABASE_URL: Optional[str] = None
-    SECRET_KEY: Optional[str] = None
+    SECRET_KEY: Optional[str] = os.getenv("SECRET_KEY")
+    model_config = SettingsConfigDict(env_file=".env")
     
     async def initialize_database(self):
         client = AsyncIOMotorClient(self.DATABASE_URL)
         await init_beanie(database=client.get_default_database(), document_models=[Event, User])
         
         
-    class Config:
-        env_file = ".env"
-        
-
 class Database:
     def __init__(self, model):
         self.model = model
