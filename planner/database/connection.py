@@ -1,7 +1,7 @@
 from typing import Optional, Any, List
 
 from beanie import init_beanie, PydanticObjectId
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic_settings import BaseSettings
 
@@ -12,16 +12,13 @@ from models.users import User
 class Settings(BaseSettings):
     DATABASE_URL: Optional[str] = None
     SECRET_KEY: Optional[str] = None
+    model_config = ConfigDict(env_file = ".env")
     
     async def initialize_database(self):
         client = AsyncIOMotorClient(self.DATABASE_URL)
         await init_beanie(database=client.get_default_database(), document_models=[Event, User])
         
         
-    class ConfigDict:
-        env_file = ".env"
-        
-
 class Database:
     def __init__(self, model):
         self.model = model
