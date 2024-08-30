@@ -18,7 +18,7 @@ class Settings(BaseSettings):
         await init_beanie(database=client.get_default_database(), document_models=[Event, User])
         
         
-    class Config:
+    class ConfigDict:
         env_file = ".env"
         
 

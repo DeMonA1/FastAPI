@@ -15,7 +15,7 @@ class User(Document):
         name = "users"
         
         
-    class Config:
+    class ConfigDict:
         json_schema_extra = {"example":{"email": "fastapi@example.com",
                                         "password": "strongpassword",
                                         "events": [],}}

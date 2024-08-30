@@ -12,7 +12,7 @@ class Todo(BaseModel):
         return cls(item=item)
 
 
-    class Config:
+    class ConfigDict:
         json_schema_extra = {
             "example": {
                 "id": 1,
@@ -24,7 +24,7 @@ class Todo(BaseModel):
 class TodoItem(BaseModel):
     item: str
     
-    class Config:
+    class ConfigDict:
         json_schema_extra = {
             "example": {
                 "item": "Read the next chapter of the book"
@@ -35,7 +35,7 @@ class TodoItem(BaseModel):
 class TodoItems(BaseModel):
     todos: List[TodoItem]
     
-    class Config:
+    class ConfigDict:
         json_schema_extra = {"example": {"todos": [
                     {"item": "Example schema 1!"},
                     {"item": "Example schema 2!"}

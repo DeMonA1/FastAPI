@@ -14,7 +14,7 @@ class Event(Document):
     location: str
     
     
-    class Config:
+    class ConfigDict:
         json_schema_extra = {"example":{"title":"FastAPI Launch",
                                         "image": "https://unsplash.com/photos/blue-and-green-abstract-painting-Jd09hiCUPCs",
                                         "description": "We will be discussing the contents of the \
@@ -35,7 +35,7 @@ class EventUpdate(BaseModel):
     location: Optional[str] = None
     
     
-    class Config:
+    class ConfigDict:
         json_schema_extra = {"example":{"title":"FastAPI Launch",
                                         "image": "https://unsplash.com/photos/blue-and-green-abstract-painting-Jd09hiCUPCs",
                                         "description": "We will be discussing the contents of the \
