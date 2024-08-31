@@ -3,7 +3,7 @@
 ## 🌟 Highlights
 - It's just a simple learning project
 - Simple todos list with authorization
-- Main tags: #Python3, #FastAPI, #Docker  
+- Main tags: #Python3, #FastAPI, #MongoDB, #SQLite, #Docker  
 
 
 ## ℹ️ Overview
