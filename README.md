@@ -17,7 +17,7 @@ Tests can be implement on Windows and Linux with curl.
 ```bash
 pytest        #all tests
 
-pytest ***.py
+pytest test-login.py          # for example
 
 coverage run -m pytest
 
