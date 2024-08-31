@@ -1,10 +1,9 @@
 # FastAPI
           
 ## 🌟 Highlights
-
-- Some functionality made easy!
-- This problem handled
-- etc.
+- It's just a simple learning project
+- Simple todos list with authorization
+- Main tags: #Python3, #FastAPI, #Docker  
 
 
 ## ℹ️ Overview
